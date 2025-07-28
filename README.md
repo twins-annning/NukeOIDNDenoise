@@ -107,7 +107,7 @@ cmake --build . --config Release
 
 - add path/to/oidn-2.3.3/lib to Environment PATH
 
-// install oidnDenoise
+// install Nuke oidnDenoise
 cmake -G "Visual Studio 16 2019" -DCMAKE_PREFIX_PATH="/path/to/NukePATH"  -DOIDN_ROOT=/path/to/oidn-2.3.3  DCMAKE_BUILD_TYPE=Release ..
 
 cmake --build . --config Release
