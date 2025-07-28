@@ -93,7 +93,7 @@ https://registrationcenter-download.intel.com/akdlm/IRC_NAS/d6497040-a73d-435a-a
 // download and extract oidn-2.3.3.src.tar.gz
 curl -OL https://github.com/RenderKit/oidn/releases/download/v2.3.3/oidn-2.3.3.src.tar.gz
 
-cd oidn-2.3.3.src
+cd oidn-2.3.3
 
 mkdir build && cd build
 
