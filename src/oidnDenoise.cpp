@@ -108,7 +108,7 @@ void NukeOIDNDenoise::executeFilter()
 {
     try
     {
-        for (unsigned int i = 0; i < m_timesTorun; i++)
+        for (int i = 0; i < m_timesTorun; i++)
         {
             m_filter.execute();
             
@@ -328,15 +328,23 @@ void NukeOIDNDenoise::renderStripe(DD::Image::ImagePlane& outputPlane)
     executeFilter();
     
     // Copy final output into the image plane.
+    outputPlane.writable();
     for (auto chanNo = 0; chanNo < m_numberOfInputChannels; chanNo++)
     {
-        float* outdata = &outputPlane.writable()[outputPlane.chanStride() * chanNo];
-        for (auto i = 0; i < m_width; i++)
+        int c = -1;
+        if (chanNo == 0) c = outputPlane.chanNo(DD::Image::Channel::Chan_Red);
+        if (chanNo == 1) c = outputPlane.chanNo(DD::Image::Channel::Chan_Green);
+        if (chanNo == 2) c = outputPlane.chanNo(DD::Image::Channel::Chan_Blue);
+        if (c < 0)
         {
-            for (auto j = 0; j < m_height; j++)
+            continue;
+        }
+        for (auto j = 0u; j < m_height; j++)
+        {
+            for (auto i = 0u; i < m_width; i++)
             {
                 size_t index = ((m_height - j - 1) * m_width + i) * m_numberOfInputChannels + chanNo;
-                outdata[j * m_width + i] = outputPtr[index];
+                outputPlane.writableAt(i, j, c) = outputPtr[index];
             }
         }
     }
