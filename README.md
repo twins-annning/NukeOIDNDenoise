@@ -173,7 +173,7 @@ Optionally,
 
 ## Attribution
 
-This project utilizes [NukeCGDenoiser](https://github.com/mateuszwojt/NukeCGDenoiser.git) by [Mateusz Wojt], licensed under the [MIT] license.
+This project utilizes [NukeCGDenoiser](https://github.com/mateuszwojt/NukeCGDenoiser.git) by Mateusz Wojt, licensed under the MIT license.
 
 Thank you for your great work. Just have referenced a lot of your code, was like standing on the shoulder of giants.
 
