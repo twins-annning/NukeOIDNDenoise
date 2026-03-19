@@ -73,7 +73,7 @@ cmake --build . --config Release
 cmake --install . --config Release
 
 
-Optionally,
+Optionally I,
 
 // If Nuke crashes when launching the oidenDenoise plugin.
 // Maybe need to compile oidn-2.3.3
@@ -120,6 +120,27 @@ cmake -G "Visual Studio 16 2019" -DCMAKE_PREFIX_PATH="/path/to/NukePATH"  -DOIDN
 cmake --build . --config Release
 
 cmake --install . --config Release
+
+
+Optionally II,
+
+// If create the NukeOIDNDenoise plugin on one machine, and want to migrate it to another machine.
+
+copy plugin oidnDenoise to another machine
+
+add nuke.pluginAddPath('C:/Users/Your-name/.nuke/oidnDenoise') to init.py
+
+copy oidn-2.3.3 folder to another machine 
+
+add path/to/oidn-2.3.3/lib to Environment PATH
+
+install ispc-v1.27.0-windows
+
+add \path\to\ispc-v1.27.0-windows\bin to Environment PATH 
+
+install intel-onetbb-2022.2.0.506_offline.exe 
+
+add \path\to\Intel\oneAPI\tbb\2022.2\bin to Environment PATH
 
 ```
 
